@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <h3>REGISTER HERE</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3" style="background-color:pink;">
+          <label class="form-label">USERNAME</label>
+          <input type="text" class="form-control" placeholder="ENTER THE USERNAME" name="u">
+                 <div class="mb-3"style="background-color:pink;">
+          <label class="form-label">PASSWORD</label>
+          <input type="password" class="form-control" placeholder="ENTER THE PASSWORD" name="p">
+        </div>
+        <div class="mb-3"style="background-color:pink;">
+            <label class="form-label">CONFIRM PASSWORD</label>
+            <input type="password" class="form-control" placeholder="CONFIRM PASSWORD" name="cp">
+          </div>
+          <div class="mb-3"style="background-color:pink;">
+            <label class="form-label">EMAIL</label>
+            <input type="email" class="form-control" placeholder="ENTER THE EMAIL" name="e">
+          </div>
+          <div class="mb-3"style="background-color:pink;">
+            <label class="form-label">phone</label>
+            <input type="phon" class="form-control" placeholder="ENTER THE phone number" name="n">
+          </div>
+
+          <div class="mb-3"style="background-color:pink;">
+            <label class="form-label">address</label>
+            <input type="text" class="form-control" placeholder="ENTER THE address" name="a">
+          </div>
+
+          <div class="mb-3"style="background-color:pink;">
+                    <input type="submit" class="form-control">
+          </div>
+          <div class="mb-3">
+  <input type="login" class="form-control">
+</div>
+        </form>
+    {% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load  static %}
+{% block content %}
+<div class="container-fluid mt-5" style="..">
+    <center>
+        <h3 class="text-center text-scondary">{{m}}</h3>
+        <h5 class="text-centre text-success">Thanku You</h5>
+        <h6><a href="{%url 'shop:allcat' %}">Continue Shopping</a></h6>
+        <div class="col-sm-6">
+            <table class="table table-bordered">
+            <tr>
+                <th colspan="5" class="text-center" >Cart Items</th>
+            </tr>
+            {% for i in c %}
+            <tr>
+                <td><img src="{{i.product.image.url}}" height="200px" width="200px"></td>
+                <td><b>{{i.product.name}}</b></td>
+                <td><b>Product id:{{i.product.id}}</b><br>
+                <b>Unit Price:{{i.product.price}}</b><br>
+                <b>Quantity:{{i.quantity}}*{{i.product.price}}</b></td>
+            
+                <td><b>SubTotal:{{i.subtotal}}</b></td>
+                <td>
+                {% if i.quantity < i.product.stock %}
+                    <a href="{% url 'cart:addtocart' i.product.name %}"><i style="color:black;font-size:20px;" class="fa-regular fa-plus"></i></a>
+                    <a href="{% url 'cart:cart_remove' i.product.name %}"><i style="color:black;font-size:20px;" class="fa-sharp fa-solid fa-minus"></i></a>
+                    <a href="{% url 'cart:full_remove' i.product.name %}"><i style="color:black;font-size:20px;"  class="fa-sharp fa-solid fa-trash"></i></a></td>
+                {% else %}
+                    <a href="{% url 'cart:cart_remove' i.product.name %}"><i style="color:black;font-size:20px;" class="fa-sharp fa-solid fa-minus"></i></a>
+                    <a href="{% url 'cart:full_remove' i.product.name %}"><i style="color:black;font-size:20px;"  class="fa-sharp fa-solid fa-trash"></i></a></td>
+                </tr>
+                {% endif %}
+    </center>
+{% endblock %}

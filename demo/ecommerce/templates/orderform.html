@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      {% block content %}
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <div class="mb-3">
+                <label class="form-label">ADDRESS</label>
+                <textarea class="form-control"  name="a"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">PHONE</label>
+                <input type="text" class="form-control" placeholder="ENTER THE PHONE NUMBER" name="p">
+            </div>
+            <div class="mb-3"></div>
+                <label class="form-label">Account Number</label>
+                <input type="text" class="form-control" placeholder="ENTER THE ACCOUNT NUMBER" name="n">
+            </div>
+            
+         
+          <div class="mb-3">
+                    <input type="submit" class="form-control">
+          </div>
+        </form>
+    {% endblock %}

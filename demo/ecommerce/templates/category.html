@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/banner.jpg' %}" height="300px;" width="100%"%>
+</div>
+    <div class="container-fluid mt-2" style="margin-bottom:100px;">
+        <h3 class="text-center fw-3">Our collections</h3>
+    <p style="line-height=1.8;text-align:justify;">Ecommerce is a method of buying and selling goods and services online. The definition of ecommerce business can also include tactics like affiliate marketing. You can use ecommerce channels such as your own website, an established selling website like Amazon, or social media to drive online sales.</p>
+    </div>
+
+    <div class="row">
+      {% for i in allcat %}
+        <div class="col-md-4" style="margin-bottom:100px"><div class="card ms-5 me-5" style="width:350px;height:460px">
+            <center>
+              <img style="height:220px; width:340px;" src="{{i.image.url}}" class="card-img-top mt-1" alt="">
+            </center>
+            <div class="card-body">
+              <center>
+              <h5 class="card-title" style="...">{{i.name}}</h5>
+              <p style=".." class="card-text">{{i.dese}}</p>
+            
+              <a href="{% url 'shop:allproducts' i.name %}" class="btn btn-primary"style="font-weight:bold">SHOP</a>
+              </center>
+            </div>
+          </div></div>
+
+          {% endfor %}
+          
+                    </div>
+                  </div>
+
+{% endblock %}
+
+
+
+
